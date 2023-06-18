@@ -106,9 +106,9 @@ def build_fakefs():
     if response == 1:  # Yes
         # Run the command in a subprocess
         if system_name == "posix":
-            process = subprocess.Popen(["./device/Darwin/palera1n", "-cf"], preexec_fn=os.setsid)
-        elif system_name == "darwin":
             process = subprocess.Popen(["./device/Linux/palera1n", "-cf"], preexec_fn=os.setsid)
+        elif system_name == "darwin":
+            process = subprocess.Popen(["./device/Darwin/palera1n", "-cf"], preexec_fn=os.setsid)
         # Wait for 8 seconds or until the process completes
         for i in range(20):
             if process.poll() is not None:
@@ -120,14 +120,14 @@ def build_fakefs():
             os.killpg(os.getpgid(process.pid), signal.SIGTERM)
 
         if system_name == "posix":
-            os.system("./device/Darwin/palera1n -cf")
-        elif system_name == "darwin":
             os.system("./device/Linux/palera1n -cf")
+        elif system_name == "darwin":
+            os.system("./device/Darwin/palera1n -cf")
     if response == 0:  # No
         if system_name == "posix":
-            os.system("./device/Darwin/palera1n -cf")
-        elif system_name == "darwin":
             os.system("./device/Linux/palera1n -cf")
+        elif system_name == "darwin":
+            os.system("./device/Darwin/palera1n -cf")
     messagebox.showinfo("", "After the device boots you can boot the fake fs")
     
 def boot_fakefs():
@@ -139,9 +139,9 @@ def boot_fakefs():
     if response == 1:  # Yes
         # Run the command in a subprocess
         if system_name == "posix":
-            process = subprocess.Popen(["./device/Darwin/palera1n", "-f"], preexec_fn=os.setsid)
-        elif system_name == "darwin":
             process = subprocess.Popen(["./device/Linux/palera1n", "-f"], preexec_fn=os.setsid)
+        elif system_name == "darwin":
+            process = subprocess.Popen(["./device/Darwin/palera1n", "-f"], preexec_fn=os.setsid)
         # Wait for 8 seconds or until the process completes
         for i in range(20):
             if process.poll() is not None:
@@ -153,14 +153,14 @@ def boot_fakefs():
             os.killpg(os.getpgid(process.pid), signal.SIGTERM)
 
         if system_name == "posix":
-            os.system("./device/Darwin/palera1n -f")
-        elif system_name == "darwin":
             os.system("./device/Linux/palera1n -f")
+        elif system_name == "darwin":
+            os.system("./device/Darwin/palera1n -f")
     if response == 0:  # No
         if system_name == "posix":
-            os.system("./device/Darwin/palera1n -f")
-        elif system_name == "darwin":
             os.system("./device/Linux/palera1n -f")
+        elif system_name == "darwin":
+            os.system("./device/Darwin/palera1n -f")
     messagebox.showinfo("", "Now start the bypass")
 
     
@@ -170,9 +170,9 @@ def icloudbypassios16():
 
     showinfo('bypass!', 'We will now bypass your device! please jailbreak first with palera1n C!')
     if system_name == "posix":
-        os.system("bash ./device/Darwin/bypass.sh")
-    elif system_name == "darwin":
         os.system("bash ./device/Linux/bypass.sh")
+    elif system_name == "darwin":
+        os.system("bash ./device/Darwin/bypass.sh")
 
     print("Device is bypassed\n")
     showinfo('bypass Success!', 'Device is now bypassed!')
